@@ -1,0 +1,17 @@
+{
+  "name": "bookmarker",
+  "displayName": "bookmarker",
+  "expo": {
+    "name": "bookmarker",
+    "slug": "bookmarker",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
