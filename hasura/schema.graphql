@@ -1,0 +1,1014 @@
+schema {
+  query: query_root
+  mutation: mutation_root
+  subscription: subscription_root
+}
+
+# columns and relationships of "bookmarker.markers"
+type bookmarker_markers {
+  created_at: timestamptz!
+  id: Int!
+  is_public: Boolean!
+  is_read: Boolean!
+  updated_at: timestamptz
+  url: String!
+  user_id: String!
+}
+
+# aggregated selection of "bookmarker.markers"
+type bookmarker_markers_aggregate {
+  aggregate: bookmarker_markers_aggregate_fields
+  nodes: [bookmarker_markers!]!
+}
+
+# aggregate fields of "bookmarker.markers"
+type bookmarker_markers_aggregate_fields {
+  avg: bookmarker_markers_avg_fields
+  count(columns: [bookmarker_markers_select_column!], distinct: Boolean): Int
+  max: bookmarker_markers_max_fields
+  min: bookmarker_markers_min_fields
+  stddev: bookmarker_markers_stddev_fields
+  stddev_pop: bookmarker_markers_stddev_pop_fields
+  stddev_samp: bookmarker_markers_stddev_samp_fields
+  sum: bookmarker_markers_sum_fields
+  var_pop: bookmarker_markers_var_pop_fields
+  var_samp: bookmarker_markers_var_samp_fields
+  variance: bookmarker_markers_variance_fields
+}
+
+# order by aggregate values of table "bookmarker.markers"
+input bookmarker_markers_aggregate_order_by {
+  avg: bookmarker_markers_avg_order_by
+  count: order_by
+  max: bookmarker_markers_max_order_by
+  min: bookmarker_markers_min_order_by
+  stddev: bookmarker_markers_stddev_order_by
+  stddev_pop: bookmarker_markers_stddev_pop_order_by
+  stddev_samp: bookmarker_markers_stddev_samp_order_by
+  sum: bookmarker_markers_sum_order_by
+  var_pop: bookmarker_markers_var_pop_order_by
+  var_samp: bookmarker_markers_var_samp_order_by
+  variance: bookmarker_markers_variance_order_by
+}
+
+# input type for inserting array relation for remote table "bookmarker.markers"
+input bookmarker_markers_arr_rel_insert_input {
+  data: [bookmarker_markers_insert_input!]!
+  on_conflict: bookmarker_markers_on_conflict
+}
+
+# aggregate avg on columns
+type bookmarker_markers_avg_fields {
+  id: Float
+}
+
+# order by avg() on columns of table "bookmarker.markers"
+input bookmarker_markers_avg_order_by {
+  id: order_by
+}
+
+# Boolean expression to filter rows from the table "bookmarker.markers". All fields are combined with a logical 'AND'.
+input bookmarker_markers_bool_exp {
+  _and: [bookmarker_markers_bool_exp]
+  _not: bookmarker_markers_bool_exp
+  _or: [bookmarker_markers_bool_exp]
+  created_at: timestamptz_comparison_exp
+  id: Int_comparison_exp
+  is_public: Boolean_comparison_exp
+  is_read: Boolean_comparison_exp
+  updated_at: timestamptz_comparison_exp
+  url: String_comparison_exp
+  user_id: String_comparison_exp
+}
+
+# unique or primary key constraints on table "bookmarker.markers"
+enum bookmarker_markers_constraint {
+  # unique or primary key constraint
+  markers_pkey
+}
+
+# input type for incrementing integer column in table "bookmarker.markers"
+input bookmarker_markers_inc_input {
+  id: Int
+}
+
+# input type for inserting data into table "bookmarker.markers"
+input bookmarker_markers_insert_input {
+  created_at: timestamptz
+  id: Int
+  is_public: Boolean
+  is_read: Boolean
+  updated_at: timestamptz
+  url: String
+  user_id: String
+}
+
+# aggregate max on columns
+type bookmarker_markers_max_fields {
+  created_at: timestamptz
+  id: Int
+  updated_at: timestamptz
+  url: String
+  user_id: String
+}
+
+# order by max() on columns of table "bookmarker.markers"
+input bookmarker_markers_max_order_by {
+  created_at: order_by
+  id: order_by
+  updated_at: order_by
+  url: order_by
+  user_id: order_by
+}
+
+# aggregate min on columns
+type bookmarker_markers_min_fields {
+  created_at: timestamptz
+  id: Int
+  updated_at: timestamptz
+  url: String
+  user_id: String
+}
+
+# order by min() on columns of table "bookmarker.markers"
+input bookmarker_markers_min_order_by {
+  created_at: order_by
+  id: order_by
+  updated_at: order_by
+  url: order_by
+  user_id: order_by
+}
+
+# response of any mutation on the table "bookmarker.markers"
+type bookmarker_markers_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [bookmarker_markers!]!
+}
+
+# input type for inserting object relation for remote table "bookmarker.markers"
+input bookmarker_markers_obj_rel_insert_input {
+  data: bookmarker_markers_insert_input!
+  on_conflict: bookmarker_markers_on_conflict
+}
+
+# on conflict condition type for table "bookmarker.markers"
+input bookmarker_markers_on_conflict {
+  constraint: bookmarker_markers_constraint!
+  update_columns: [bookmarker_markers_update_column!]!
+  where: bookmarker_markers_bool_exp
+}
+
+# ordering options when selecting data from "bookmarker.markers"
+input bookmarker_markers_order_by {
+  created_at: order_by
+  id: order_by
+  is_public: order_by
+  is_read: order_by
+  updated_at: order_by
+  url: order_by
+  user_id: order_by
+}
+
+# primary key columns input for table: "bookmarker.markers"
+input bookmarker_markers_pk_columns_input {
+  id: Int!
+}
+
+# select columns of table "bookmarker.markers"
+enum bookmarker_markers_select_column {
+  # column name
+  created_at
+
+  # column name
+  id
+
+  # column name
+  is_public
+
+  # column name
+  is_read
+
+  # column name
+  updated_at
+
+  # column name
+  url
+
+  # column name
+  user_id
+}
+
+# input type for updating data in table "bookmarker.markers"
+input bookmarker_markers_set_input {
+  created_at: timestamptz
+  id: Int
+  is_public: Boolean
+  is_read: Boolean
+  updated_at: timestamptz
+  url: String
+  user_id: String
+}
+
+# aggregate stddev on columns
+type bookmarker_markers_stddev_fields {
+  id: Float
+}
+
+# order by stddev() on columns of table "bookmarker.markers"
+input bookmarker_markers_stddev_order_by {
+  id: order_by
+}
+
+# aggregate stddev_pop on columns
+type bookmarker_markers_stddev_pop_fields {
+  id: Float
+}
+
+# order by stddev_pop() on columns of table "bookmarker.markers"
+input bookmarker_markers_stddev_pop_order_by {
+  id: order_by
+}
+
+# aggregate stddev_samp on columns
+type bookmarker_markers_stddev_samp_fields {
+  id: Float
+}
+
+# order by stddev_samp() on columns of table "bookmarker.markers"
+input bookmarker_markers_stddev_samp_order_by {
+  id: order_by
+}
+
+# aggregate sum on columns
+type bookmarker_markers_sum_fields {
+  id: Int
+}
+
+# order by sum() on columns of table "bookmarker.markers"
+input bookmarker_markers_sum_order_by {
+  id: order_by
+}
+
+# update columns of table "bookmarker.markers"
+enum bookmarker_markers_update_column {
+  # column name
+  created_at
+
+  # column name
+  id
+
+  # column name
+  is_public
+
+  # column name
+  is_read
+
+  # column name
+  updated_at
+
+  # column name
+  url
+
+  # column name
+  user_id
+}
+
+# aggregate var_pop on columns
+type bookmarker_markers_var_pop_fields {
+  id: Float
+}
+
+# order by var_pop() on columns of table "bookmarker.markers"
+input bookmarker_markers_var_pop_order_by {
+  id: order_by
+}
+
+# aggregate var_samp on columns
+type bookmarker_markers_var_samp_fields {
+  id: Float
+}
+
+# order by var_samp() on columns of table "bookmarker.markers"
+input bookmarker_markers_var_samp_order_by {
+  id: order_by
+}
+
+# aggregate variance on columns
+type bookmarker_markers_variance_fields {
+  id: Float
+}
+
+# order by variance() on columns of table "bookmarker.markers"
+input bookmarker_markers_variance_order_by {
+  id: order_by
+}
+
+# columns and relationships of "bookmarker.online_users"
+type bookmarker_online_users {
+  last_seen: timestamptz
+  name: String
+}
+
+# aggregated selection of "bookmarker.online_users"
+type bookmarker_online_users_aggregate {
+  aggregate: bookmarker_online_users_aggregate_fields
+  nodes: [bookmarker_online_users!]!
+}
+
+# aggregate fields of "bookmarker.online_users"
+type bookmarker_online_users_aggregate_fields {
+  count(columns: [bookmarker_online_users_select_column!], distinct: Boolean): Int
+  max: bookmarker_online_users_max_fields
+  min: bookmarker_online_users_min_fields
+}
+
+# order by aggregate values of table "bookmarker.online_users"
+input bookmarker_online_users_aggregate_order_by {
+  count: order_by
+  max: bookmarker_online_users_max_order_by
+  min: bookmarker_online_users_min_order_by
+}
+
+# input type for inserting array relation for remote table "bookmarker.online_users"
+input bookmarker_online_users_arr_rel_insert_input {
+  data: [bookmarker_online_users_insert_input!]!
+}
+
+# Boolean expression to filter rows from the table "bookmarker.online_users". All fields are combined with a logical 'AND'.
+input bookmarker_online_users_bool_exp {
+  _and: [bookmarker_online_users_bool_exp]
+  _not: bookmarker_online_users_bool_exp
+  _or: [bookmarker_online_users_bool_exp]
+  last_seen: timestamptz_comparison_exp
+  name: String_comparison_exp
+}
+
+# input type for inserting data into table "bookmarker.online_users"
+input bookmarker_online_users_insert_input {
+  last_seen: timestamptz
+  name: String
+}
+
+# aggregate max on columns
+type bookmarker_online_users_max_fields {
+  last_seen: timestamptz
+  name: String
+}
+
+# order by max() on columns of table "bookmarker.online_users"
+input bookmarker_online_users_max_order_by {
+  last_seen: order_by
+  name: order_by
+}
+
+# aggregate min on columns
+type bookmarker_online_users_min_fields {
+  last_seen: timestamptz
+  name: String
+}
+
+# order by min() on columns of table "bookmarker.online_users"
+input bookmarker_online_users_min_order_by {
+  last_seen: order_by
+  name: order_by
+}
+
+# response of any mutation on the table "bookmarker.online_users"
+type bookmarker_online_users_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [bookmarker_online_users!]!
+}
+
+# input type for inserting object relation for remote table "bookmarker.online_users"
+input bookmarker_online_users_obj_rel_insert_input {
+  data: bookmarker_online_users_insert_input!
+}
+
+# ordering options when selecting data from "bookmarker.online_users"
+input bookmarker_online_users_order_by {
+  last_seen: order_by
+  name: order_by
+}
+
+# select columns of table "bookmarker.online_users"
+enum bookmarker_online_users_select_column {
+  # column name
+  last_seen
+
+  # column name
+  name
+}
+
+# input type for updating data in table "bookmarker.online_users"
+input bookmarker_online_users_set_input {
+  last_seen: timestamptz
+  name: String
+}
+
+# columns and relationships of "bookmarker.users"
+type bookmarker_users {
+  created_at: timestamptz!
+  id: String!
+  last_seen: timestamptz
+  name: String!
+}
+
+# aggregated selection of "bookmarker.users"
+type bookmarker_users_aggregate {
+  aggregate: bookmarker_users_aggregate_fields
+  nodes: [bookmarker_users!]!
+}
+
+# aggregate fields of "bookmarker.users"
+type bookmarker_users_aggregate_fields {
+  count(columns: [bookmarker_users_select_column!], distinct: Boolean): Int
+  max: bookmarker_users_max_fields
+  min: bookmarker_users_min_fields
+}
+
+# order by aggregate values of table "bookmarker.users"
+input bookmarker_users_aggregate_order_by {
+  count: order_by
+  max: bookmarker_users_max_order_by
+  min: bookmarker_users_min_order_by
+}
+
+# input type for inserting array relation for remote table "bookmarker.users"
+input bookmarker_users_arr_rel_insert_input {
+  data: [bookmarker_users_insert_input!]!
+  on_conflict: bookmarker_users_on_conflict
+}
+
+# Boolean expression to filter rows from the table "bookmarker.users". All fields are combined with a logical 'AND'.
+input bookmarker_users_bool_exp {
+  _and: [bookmarker_users_bool_exp]
+  _not: bookmarker_users_bool_exp
+  _or: [bookmarker_users_bool_exp]
+  created_at: timestamptz_comparison_exp
+  id: String_comparison_exp
+  last_seen: timestamptz_comparison_exp
+  name: String_comparison_exp
+}
+
+# unique or primary key constraints on table "bookmarker.users"
+enum bookmarker_users_constraint {
+  # unique or primary key constraint
+  users_pkey
+}
+
+# input type for inserting data into table "bookmarker.users"
+input bookmarker_users_insert_input {
+  created_at: timestamptz
+  id: String
+  last_seen: timestamptz
+  name: String
+}
+
+# aggregate max on columns
+type bookmarker_users_max_fields {
+  created_at: timestamptz
+  id: String
+  last_seen: timestamptz
+  name: String
+}
+
+# order by max() on columns of table "bookmarker.users"
+input bookmarker_users_max_order_by {
+  created_at: order_by
+  id: order_by
+  last_seen: order_by
+  name: order_by
+}
+
+# aggregate min on columns
+type bookmarker_users_min_fields {
+  created_at: timestamptz
+  id: String
+  last_seen: timestamptz
+  name: String
+}
+
+# order by min() on columns of table "bookmarker.users"
+input bookmarker_users_min_order_by {
+  created_at: order_by
+  id: order_by
+  last_seen: order_by
+  name: order_by
+}
+
+# response of any mutation on the table "bookmarker.users"
+type bookmarker_users_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [bookmarker_users!]!
+}
+
+# input type for inserting object relation for remote table "bookmarker.users"
+input bookmarker_users_obj_rel_insert_input {
+  data: bookmarker_users_insert_input!
+  on_conflict: bookmarker_users_on_conflict
+}
+
+# on conflict condition type for table "bookmarker.users"
+input bookmarker_users_on_conflict {
+  constraint: bookmarker_users_constraint!
+  update_columns: [bookmarker_users_update_column!]!
+  where: bookmarker_users_bool_exp
+}
+
+# ordering options when selecting data from "bookmarker.users"
+input bookmarker_users_order_by {
+  created_at: order_by
+  id: order_by
+  last_seen: order_by
+  name: order_by
+}
+
+# primary key columns input for table: "bookmarker.users"
+input bookmarker_users_pk_columns_input {
+  id: String!
+}
+
+# select columns of table "bookmarker.users"
+enum bookmarker_users_select_column {
+  # column name
+  created_at
+
+  # column name
+  id
+
+  # column name
+  last_seen
+
+  # column name
+  name
+}
+
+# input type for updating data in table "bookmarker.users"
+input bookmarker_users_set_input {
+  created_at: timestamptz
+  id: String
+  last_seen: timestamptz
+  name: String
+}
+
+# update columns of table "bookmarker.users"
+enum bookmarker_users_update_column {
+  # column name
+  created_at
+
+  # column name
+  id
+
+  # column name
+  last_seen
+
+  # column name
+  name
+}
+
+# expression to compare columns of type Boolean. All fields are combined with logical 'AND'.
+input Boolean_comparison_exp {
+  _eq: Boolean
+  _gt: Boolean
+  _gte: Boolean
+  _in: [Boolean!]
+  _is_null: Boolean
+  _lt: Boolean
+  _lte: Boolean
+  _neq: Boolean
+  _nin: [Boolean!]
+}
+
+# expression to compare columns of type Int. All fields are combined with logical 'AND'.
+input Int_comparison_exp {
+  _eq: Int
+  _gt: Int
+  _gte: Int
+  _in: [Int!]
+  _is_null: Boolean
+  _lt: Int
+  _lte: Int
+  _neq: Int
+  _nin: [Int!]
+}
+
+# mutation root
+type mutation_root {
+  # delete data from the table: "bookmarker.markers"
+  delete_bookmarker_markers(
+    # filter the rows which have to be deleted
+    where: bookmarker_markers_bool_exp!
+  ): bookmarker_markers_mutation_response
+
+  # delete single row from the table: "bookmarker.markers"
+  delete_bookmarker_markers_by_pk(id: Int!): bookmarker_markers
+
+  # delete data from the table: "bookmarker.online_users"
+  delete_bookmarker_online_users(
+    # filter the rows which have to be deleted
+    where: bookmarker_online_users_bool_exp!
+  ): bookmarker_online_users_mutation_response
+
+  # delete data from the table: "bookmarker.users"
+  delete_bookmarker_users(
+    # filter the rows which have to be deleted
+    where: bookmarker_users_bool_exp!
+  ): bookmarker_users_mutation_response
+
+  # delete single row from the table: "bookmarker.users"
+  delete_bookmarker_users_by_pk(id: String!): bookmarker_users
+
+  # insert data into the table: "bookmarker.markers"
+  insert_bookmarker_markers(
+    # the rows to be inserted
+    objects: [bookmarker_markers_insert_input!]!
+
+    # on conflict condition
+    on_conflict: bookmarker_markers_on_conflict
+  ): bookmarker_markers_mutation_response
+
+  # insert a single row into the table: "bookmarker.markers"
+  insert_bookmarker_markers_one(
+    # the row to be inserted
+    object: bookmarker_markers_insert_input!
+
+    # on conflict condition
+    on_conflict: bookmarker_markers_on_conflict
+  ): bookmarker_markers
+
+  # insert data into the table: "bookmarker.online_users"
+  insert_bookmarker_online_users(
+    # the rows to be inserted
+    objects: [bookmarker_online_users_insert_input!]!
+  ): bookmarker_online_users_mutation_response
+
+  # insert a single row into the table: "bookmarker.online_users"
+  insert_bookmarker_online_users_one(
+    # the row to be inserted
+    object: bookmarker_online_users_insert_input!
+  ): bookmarker_online_users
+
+  # insert data into the table: "bookmarker.users"
+  insert_bookmarker_users(
+    # the rows to be inserted
+    objects: [bookmarker_users_insert_input!]!
+
+    # on conflict condition
+    on_conflict: bookmarker_users_on_conflict
+  ): bookmarker_users_mutation_response
+
+  # insert a single row into the table: "bookmarker.users"
+  insert_bookmarker_users_one(
+    # the row to be inserted
+    object: bookmarker_users_insert_input!
+
+    # on conflict condition
+    on_conflict: bookmarker_users_on_conflict
+  ): bookmarker_users
+
+  # update data of the table: "bookmarker.markers"
+  update_bookmarker_markers(
+    # increments the integer columns with given value of the filtered values
+    _inc: bookmarker_markers_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: bookmarker_markers_set_input
+
+    # filter the rows which have to be updated
+    where: bookmarker_markers_bool_exp!
+  ): bookmarker_markers_mutation_response
+
+  # update single row of the table: "bookmarker.markers"
+  update_bookmarker_markers_by_pk(
+    # increments the integer columns with given value of the filtered values
+    _inc: bookmarker_markers_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: bookmarker_markers_set_input
+    pk_columns: bookmarker_markers_pk_columns_input!
+  ): bookmarker_markers
+
+  # update data of the table: "bookmarker.online_users"
+  update_bookmarker_online_users(
+    # sets the columns of the filtered rows to the given values
+    _set: bookmarker_online_users_set_input
+
+    # filter the rows which have to be updated
+    where: bookmarker_online_users_bool_exp!
+  ): bookmarker_online_users_mutation_response
+
+  # update data of the table: "bookmarker.users"
+  update_bookmarker_users(
+    # sets the columns of the filtered rows to the given values
+    _set: bookmarker_users_set_input
+
+    # filter the rows which have to be updated
+    where: bookmarker_users_bool_exp!
+  ): bookmarker_users_mutation_response
+
+  # update single row of the table: "bookmarker.users"
+  update_bookmarker_users_by_pk(
+    # sets the columns of the filtered rows to the given values
+    _set: bookmarker_users_set_input
+    pk_columns: bookmarker_users_pk_columns_input!
+  ): bookmarker_users
+}
+
+# column ordering options
+enum order_by {
+  # in the ascending order, nulls last
+  asc
+
+  # in the ascending order, nulls first
+  asc_nulls_first
+
+  # in the ascending order, nulls last
+  asc_nulls_last
+
+  # in the descending order, nulls first
+  desc
+
+  # in the descending order, nulls first
+  desc_nulls_first
+
+  # in the descending order, nulls last
+  desc_nulls_last
+}
+
+# query root
+type query_root {
+  # fetch data from the table: "bookmarker.markers"
+  bookmarker_markers(
+    # distinct select on columns
+    distinct_on: [bookmarker_markers_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [bookmarker_markers_order_by!]
+
+    # filter the rows returned
+    where: bookmarker_markers_bool_exp
+  ): [bookmarker_markers!]!
+
+  # fetch aggregated fields from the table: "bookmarker.markers"
+  bookmarker_markers_aggregate(
+    # distinct select on columns
+    distinct_on: [bookmarker_markers_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [bookmarker_markers_order_by!]
+
+    # filter the rows returned
+    where: bookmarker_markers_bool_exp
+  ): bookmarker_markers_aggregate!
+
+  # fetch data from the table: "bookmarker.markers" using primary key columns
+  bookmarker_markers_by_pk(id: Int!): bookmarker_markers
+
+  # fetch data from the table: "bookmarker.online_users"
+  bookmarker_online_users(
+    # distinct select on columns
+    distinct_on: [bookmarker_online_users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [bookmarker_online_users_order_by!]
+
+    # filter the rows returned
+    where: bookmarker_online_users_bool_exp
+  ): [bookmarker_online_users!]!
+
+  # fetch aggregated fields from the table: "bookmarker.online_users"
+  bookmarker_online_users_aggregate(
+    # distinct select on columns
+    distinct_on: [bookmarker_online_users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [bookmarker_online_users_order_by!]
+
+    # filter the rows returned
+    where: bookmarker_online_users_bool_exp
+  ): bookmarker_online_users_aggregate!
+
+  # fetch data from the table: "bookmarker.users"
+  bookmarker_users(
+    # distinct select on columns
+    distinct_on: [bookmarker_users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [bookmarker_users_order_by!]
+
+    # filter the rows returned
+    where: bookmarker_users_bool_exp
+  ): [bookmarker_users!]!
+
+  # fetch aggregated fields from the table: "bookmarker.users"
+  bookmarker_users_aggregate(
+    # distinct select on columns
+    distinct_on: [bookmarker_users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [bookmarker_users_order_by!]
+
+    # filter the rows returned
+    where: bookmarker_users_bool_exp
+  ): bookmarker_users_aggregate!
+
+  # fetch data from the table: "bookmarker.users" using primary key columns
+  bookmarker_users_by_pk(id: String!): bookmarker_users
+}
+
+# expression to compare columns of type String. All fields are combined with logical 'AND'.
+input String_comparison_exp {
+  _eq: String
+  _gt: String
+  _gte: String
+  _ilike: String
+  _in: [String!]
+  _is_null: Boolean
+  _like: String
+  _lt: String
+  _lte: String
+  _neq: String
+  _nilike: String
+  _nin: [String!]
+  _nlike: String
+  _nsimilar: String
+  _similar: String
+}
+
+# subscription root
+type subscription_root {
+  # fetch data from the table: "bookmarker.markers"
+  bookmarker_markers(
+    # distinct select on columns
+    distinct_on: [bookmarker_markers_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [bookmarker_markers_order_by!]
+
+    # filter the rows returned
+    where: bookmarker_markers_bool_exp
+  ): [bookmarker_markers!]!
+
+  # fetch aggregated fields from the table: "bookmarker.markers"
+  bookmarker_markers_aggregate(
+    # distinct select on columns
+    distinct_on: [bookmarker_markers_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [bookmarker_markers_order_by!]
+
+    # filter the rows returned
+    where: bookmarker_markers_bool_exp
+  ): bookmarker_markers_aggregate!
+
+  # fetch data from the table: "bookmarker.markers" using primary key columns
+  bookmarker_markers_by_pk(id: Int!): bookmarker_markers
+
+  # fetch data from the table: "bookmarker.online_users"
+  bookmarker_online_users(
+    # distinct select on columns
+    distinct_on: [bookmarker_online_users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [bookmarker_online_users_order_by!]
+
+    # filter the rows returned
+    where: bookmarker_online_users_bool_exp
+  ): [bookmarker_online_users!]!
+
+  # fetch aggregated fields from the table: "bookmarker.online_users"
+  bookmarker_online_users_aggregate(
+    # distinct select on columns
+    distinct_on: [bookmarker_online_users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [bookmarker_online_users_order_by!]
+
+    # filter the rows returned
+    where: bookmarker_online_users_bool_exp
+  ): bookmarker_online_users_aggregate!
+
+  # fetch data from the table: "bookmarker.users"
+  bookmarker_users(
+    # distinct select on columns
+    distinct_on: [bookmarker_users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [bookmarker_users_order_by!]
+
+    # filter the rows returned
+    where: bookmarker_users_bool_exp
+  ): [bookmarker_users!]!
+
+  # fetch aggregated fields from the table: "bookmarker.users"
+  bookmarker_users_aggregate(
+    # distinct select on columns
+    distinct_on: [bookmarker_users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [bookmarker_users_order_by!]
+
+    # filter the rows returned
+    where: bookmarker_users_bool_exp
+  ): bookmarker_users_aggregate!
+
+  # fetch data from the table: "bookmarker.users" using primary key columns
+  bookmarker_users_by_pk(id: String!): bookmarker_users
+}
+
+scalar timestamptz
+
+# expression to compare columns of type timestamptz. All fields are combined with logical 'AND'.
+input timestamptz_comparison_exp {
+  _eq: timestamptz
+  _gt: timestamptz
+  _gte: timestamptz
+  _in: [timestamptz!]
+  _is_null: Boolean
+  _lt: timestamptz
+  _lte: timestamptz
+  _neq: timestamptz
+  _nin: [timestamptz!]
+}
+

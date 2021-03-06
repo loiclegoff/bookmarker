@@ -32,7 +32,7 @@ function AddMarker({ navigation, route }: Props) {
 
   return (
     <>
-      <Header titleText="Add a new note" />
+      <Header titleText="Add a new Marker" />
       <IconButton
         icon="close"
         size={25}
